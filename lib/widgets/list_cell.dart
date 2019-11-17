@@ -3,16 +3,16 @@ import 'package:flutter/widgets.dart';
 import 'package:utilities/utilities.dart';
 
 class ListCell extends StatelessWidget {
-  ListCell({
-    @required this.title,
-    this.icon,
-    this.subTitle,
-    this.trailing,
-    this.onTap,
-    this.padding,
-    this.divierColor = const Color(0xFFEAEAEA),
-    this.backgroundColor = const Color(0xFFFFFFFF),
-  });
+  ListCell(
+      {@required this.title,
+      this.icon,
+      this.subTitle,
+      this.trailing,
+      this.onTap,
+      this.padding,
+      this.divierColor = const Color(0xFFEAEAEA),
+      this.backgroundColor = const Color(0xFFFFFFFF),
+      this.crossAxisAlignment = CrossAxisAlignment.center});
 
   final Widget icon;
 
@@ -30,6 +30,8 @@ class ListCell extends StatelessWidget {
 
   final Color backgroundColor;
 
+  final CrossAxisAlignment crossAxisAlignment;
+
   Widget buildCell(BuildContext context) {
     return Container(
       padding:
@@ -40,9 +42,11 @@ class ListCell extends StatelessWidget {
               bottom: Divider.createBorderSide(context, color: divierColor))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: crossAxisAlignment,
         children: <Widget>[
           Flex(
             direction: Axis.horizontal,
+            crossAxisAlignment: crossAxisAlignment,
             children: <Widget>[
               Offstage(
                 offstage: isNull(icon),
