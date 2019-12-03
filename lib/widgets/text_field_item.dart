@@ -143,7 +143,7 @@ class TextFieldItem<T> extends StatelessWidget {
           disabledBorder: border,
           enabledBorder: border,
           // border: border,
-          contentPadding: const EdgeInsets.all(0),
+          contentPadding: const EdgeInsets.only(top: 0,bottom: 0),
           hintText: hint ?? '请输入',
         ),
         // decoration: InputDecoration.collapsed(hintText: hint ?? '请输入'),
