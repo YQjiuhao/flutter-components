@@ -4,7 +4,6 @@ import 'package:utilities/utilities.dart';
 
 const double _kDefaultPrefixWidth = 90.0;
 const double _kDefaultSuffixWidth = 25.0;
-const double _kDetaultFieldHeight = 30.0;
 const double _kFontSize = 16.0;
 
 class TextFieldItem<T> extends StatelessWidget {
@@ -15,6 +14,7 @@ class TextFieldItem<T> extends StatelessWidget {
     this.hint,
     this.child,
     this.padding = const EdgeInsets.all(10),
+    this.contentPadding = const EdgeInsets.only(bottom: 3, top: 3),
     // this.prefix,
     // this.suffix,
     this.style = const TextStyle(fontSize: 14, color: Color(0xFF404040)),
@@ -75,6 +75,8 @@ class TextFieldItem<T> extends StatelessWidget {
 
   final EdgeInsetsGeometry padding;
 
+  final EdgeInsetsGeometry contentPadding;
+
   final double prefixWidth;
 
   final double suffixWidth;
@@ -109,7 +111,6 @@ class TextFieldItem<T> extends StatelessWidget {
       color: Colors.transparent,
     ));
     return SizedBox(
-      height: maxLines == 1 ? _kDetaultFieldHeight : null,
       width: Adapt.screenW() -
           (isNull(prefixText) ? 0 : prefixWidth) -
           (isNull(suffixText) && isNull(onTap) ? 0 : suffixWidth) -
@@ -143,7 +144,7 @@ class TextFieldItem<T> extends StatelessWidget {
           disabledBorder: border,
           enabledBorder: border,
           // border: border,
-          contentPadding: const EdgeInsets.only(top: _kDetaultFieldHeight/15.0,bottom: 0),
+          contentPadding: contentPadding,
           hintText: hint ?? '请输入',
         ),
         // decoration: InputDecoration.collapsed(hintText: hint ?? '请输入'),
@@ -152,7 +153,8 @@ class TextFieldItem<T> extends StatelessWidget {
   }
 
   Widget buildPrefix() {
-    return SizedBox(
+    return Container(
+      color: Colors.blue,
       width: prefixWidth,
       child: RichText(
         text: TextSpan(
