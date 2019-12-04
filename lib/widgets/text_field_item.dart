@@ -153,8 +153,7 @@ class TextFieldItem<T> extends StatelessWidget {
   }
 
   Widget buildPrefix() {
-    return Container(
-      color: Colors.blue,
+    return SizedBox(
       width: prefixWidth,
       child: RichText(
         text: TextSpan(
