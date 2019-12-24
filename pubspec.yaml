@@ -12,6 +12,7 @@ dependencies:
 
   # 归集到一起的一些工具
   utilities:
+    version: 1.0.0+6
     git: 
       url: 'https://github.com/YQjiuhao/flutter-utilities.git'
   # The following adds the Cupertino Icons font to your application.
